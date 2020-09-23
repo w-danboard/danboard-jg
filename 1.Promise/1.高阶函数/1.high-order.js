@@ -12,6 +12,7 @@
   *  4. Object.prototype.toString.call
   */
 
+// 柯理化
 function isType (type) {
   // 将string保存在这个代码块中
   return function (content) {
@@ -27,3 +28,10 @@ console.log(isString('hello'))
  * 什么叫闭包：
  *  在定义的时候，就决定了函数的作用域在哪，一个函数不在自己所在作用域下执行，可以称为闭包
  */
+
+ // 函数的柯理化： 就是让函数的范围更具体一些
+ // 函数的反柯理化： 就是扩大函数的范围
+
+ // 反柯理化
+ // Object.prototype.toString => toString()
+ 
