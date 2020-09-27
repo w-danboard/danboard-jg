@@ -3,7 +3,7 @@
 // 高版本都支持了promise
 
 // ------------------------------------------------------------------
-const Promise = require('./promise')
+// const Promise = require('./promise')
 
 
 // 1. Promise是一个类 天生的，类中需要传入一个executor执行器，默认会立即执行
@@ -15,13 +15,19 @@ const Promise = require('./promise')
 let promise = new Promise((resolve, reject) => {
   // throw new Error('错误')
   setTimeout(() => {
-    console.log(1)
+    // resolve([{a: 'a'}])
+    reject('err')
   }, 3000)
-  resolve([{a: 'a'}])
+  console.log(1)
 })
 
+ // 发布订阅模式 支持一个promise可以then多次 等会改变状态后 可以让then中的函数执行
 promise.then((data) => { // onfulfilled 成功
   console.log(data)
 }, (err) => { // onrejected 失败
   console.log(err)
 })
+
+promise.then((data) => { // onfulfilled 成功
+  console.log(data, 2)
+}, 1)
